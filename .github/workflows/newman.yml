@@ -1,6 +1,6 @@
 name: Run postman API Tests
 
-on
+on:
   push:
     branches:
      -'**'
