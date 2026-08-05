@@ -6,21 +6,20 @@ on:
      -'**'
 
 jobs:
- api-test:
-  runs-on : windows-latest
+  api-test:
+    runs-on: windows-latest
+    steps:
+      - name: checkout Repository
+        uses: actions/checkout@v3
 
-steps:
--name: checkout Repository
-uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 24
 
--name:  Setup Node
- uses:  actions/setup-node@v3
- with:
-   node-version: 24
+      - name: Install Newman
+        run: npm install -g newman
 
--name : Install Newman
- run: npm install -g newman
-
--name: Run Collection
- run: newman run collection.json
+      - name: Run Collection
+        run: newman run collection.json
   
