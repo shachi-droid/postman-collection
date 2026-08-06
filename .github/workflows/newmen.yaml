@@ -10,7 +10,7 @@ on:
        -'**'
 
 jobs:
-  newman:
+  api-test:
     runs-on: window-latest
 
     steps:
