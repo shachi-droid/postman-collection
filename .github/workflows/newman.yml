@@ -1,25 +1,28 @@
-name: Run postman API Tests
+name: Run Postman Collection
 
 on:
   push:
     branches:
      -'**'
 
-jobs:
-  api-test:
-    runs-on: windows-latest
-    steps:
-      - name: checkout Repository
-        uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
+jobs:
+  newman-tests:
+    runs-on: window-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: 20
 
       - name: Install Newman
         run: npm install -g newman
 
       - name: Run Collection
-        run: newman run collection.json
+        run: |
+          newman run collection.json
   
