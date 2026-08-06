@@ -3,8 +3,9 @@ name: Run Postman API Test
 on:
   push:
     branches:
-      - main
       - master
+      - main
+  pull_request:
 
 jobs:
   api-test:
@@ -14,19 +15,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Show files
+        run: |
+          pwd
+          ls -la
+          find . -type f
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-     - name: Show files
-    run: |
-      pwd
-      ls -la
-      find . -type f
-
       - name: Install Newman
         run: npm install -g newman
 
-      - name: Run Postman Collection
+      - name: Run Collection
         run: newman run collection.json
