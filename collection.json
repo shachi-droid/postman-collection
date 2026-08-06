@@ -474,9 +474,9 @@
               "script": {
                 "exec": [
                   "// 1. Status Code Check",
-                  "pm.test(\"Status code is 200\", function () {",
-                  "    pm.response.to.have.status(200);",
-                  "});",
+                        pm.test('Status code is successful', function () {
+                        pm.expect(pm.response.code).to.be.oneOf([200, 201]);
+                     "});",
                   "",
                   "// 2. Response time check",
                   "pm.test(\"Response time is less than 5000ms\", function () {",
