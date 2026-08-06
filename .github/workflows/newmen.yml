@@ -35,4 +35,4 @@ jobs:
 
       # Run Postman collection
       - name: Run Collection
-        run: newman run ./collection.json -e Agyield UAT2.postman_environment.json
+        run: newman run ./collection.json -e "Agyield UAT2.postman_environment.json"
