@@ -12,22 +12,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout repository code
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # Verify files available in runner
       - name: Show files
         run: |
           pwd
           ls -la
-          find . -type f
+          find . -maxdepth 3 -type f
 
+      # Install Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
+      # Install Newman
       - name: Install Newman
         run: npm install -g newman
 
+      # Run Postman collection
       - name: Run Collection
-        run: newman run collection.json
+        run: newman run ./collection.json -e "Agyield UAT2.postman_environment.json"
