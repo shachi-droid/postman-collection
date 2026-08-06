@@ -29,5 +29,5 @@ jobs:
       - name: Install Newman
         run: npm install -g newman
 
-      - name: Run Collection
-  run: newman run collection.json
+        name: Run Collection
+        run: newman run collection.json
