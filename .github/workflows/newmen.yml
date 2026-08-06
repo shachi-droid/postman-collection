@@ -1,8 +1,8 @@
 # This is a basic workflow to help you get started with Actions
 
 
-  
-        name: Run Newman Tests
+name: Run Postman API test
+
 
 on:
   push:
@@ -25,5 +25,5 @@ jobs:
       - name: Install Newman
         run: npm install -g newman
 
-      - name: Run Postman Collection
+      - name: Run  Collection
         run: newman run collection.json
