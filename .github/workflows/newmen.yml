@@ -1,17 +1,17 @@
 # This is a basic workflow to help you get started with Actions
 
 
-name: Run Postman API test
 
+       name: Run Postman API Test
 
 on:
   push:
     branches:
-       -'**'
+      - '**'
 
 jobs:
   api-test:
-    runs-on: window-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout repository
@@ -25,5 +25,5 @@ jobs:
       - name: Install Newman
         run: npm install -g newman
 
-      - name: Run  Collection
+      - name: Run Collection
         run: newman run collection.json
